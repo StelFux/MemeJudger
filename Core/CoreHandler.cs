@@ -11,7 +11,7 @@ namespace MemeJudger.Core
     {
         private DiscordSocketClient _client;
         private CommandService _commands;
-        private string token = "***REMOVED***";
+        private string token = "";
 
         public CoreHandler()
         {
