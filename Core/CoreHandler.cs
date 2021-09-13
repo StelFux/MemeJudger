@@ -19,13 +19,19 @@ namespace MemeJudger.Core
         //the service, that the Command Handler needs in order to aggregate each command module to it.
         private CommandService _commands;
         
-        //the token of the bot, for the moment, it is hardwritten
-        private string token = "";
+        //the token of the bot
+        private string token;
 
         public CoreHandler()
         {
             _client = new DiscordSocketClient();
             _commands = new CommandService();
+            token = Environment.GetEnvironmentVariable("TOKEN");
+
+            if (token == null)
+            {
+               throw new ArgumentNullException("$TOKEN","Please use $TOKEN for set token.");
+            }
         }
         
         public async Task Main()
