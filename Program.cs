@@ -7,6 +7,6 @@ namespace MemeJudger
     class Program
     {
         static void Main(string[] args)
-            => new CoreHandler().Main().GetAwaiter().GetResult();
+            => new CoreHandler().Main().GetAwaiter().GetResult(); //starting the core handler of the bot
     }
 }

@@ -9,7 +9,10 @@ namespace MemeJudger.Modules
     [Group("clean")]
     public class CleanModule : ModuleBase<SocketCommandContext>
     {
-        // clean
+        /// <summary>
+        /// Standard action, that is called when user is not fulfilling complete command
+        /// </summary>
+        /// <returns></returns>
         [Command]
         public async Task DefaultAction()
         {
@@ -24,7 +27,14 @@ namespace MemeJudger.Modules
 
             await ReplyAsync(embed: embed);
         }
-
+        
+        /// <summary>
+        /// Cleans x messages before the activated command 
+        /// Ex: clean messages 15
+        /// Command is only accessible to user with admin permission
+        /// </summary>
+        /// <param name="amount">the amount of messages to delete in the current channel</param>
+        /// <returns></returns>
         [Command("messages")]
         [RequireUserPermission(GuildPermission.Administrator)]
         public async Task CleanAsync(int amount)
